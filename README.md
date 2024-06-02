@@ -325,7 +325,7 @@ This will look through the event log viewed earlier, grab the events of people w
 </p>
 <br></br>
 
-## <p align="center"> WORLD MAP OF INCOMING RDP ATTACKS 🔥</p> 
+## <p align="center"> WORLD MAP OF INCOMING RDP ATTACKS JUST UNDER 24 HOURS</p> 
 
 <p align="center">
 <img src="https://imgur.com/huEvfWT.jpg" height="90%", width="90%">
