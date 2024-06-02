@@ -72,36 +72,49 @@ Its purpose is to ingest the windows events logs.
 <img src="https://imgur.com/dxDdpeH.jpg" height="90%", width="90%">
 </p>
 
+#### ENABLE GATHERING VM LOGS IN SECURITY CENTER
+
+- Open Defender for Cloud
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/6EY1NAf.jpg" height="90%", width="90%">
+</p>
+
+- Environment Settings
+<p align="center">
+<img src="https://imgur.com/xYW9ANr.jpg" height="90%", width="90%">
+</p>
+
+- Turnoff SQL Servers
+<p align="center">
+<img src="https://imgur.com/c7ZQlC3.jpg" height="90%", width="90%">
+</p>
+
+- Set Data COllections to All events
+<p align="center">
+<img src="https://imgur.com/A2Knnz6.jpg" height="90%", width="90%">
+</p>
+
+#### CONNECTING LOG ANALYTICS TO VIRTUAL MACHINE
+Select the workspace and head to machine to connect.
+
+<p align="center">
+<img src="https://imgur.com/dm6czBq.jpg" height="90%", width="90%">
+</p>
+
+#### MICROSOFT SENTINEL SETUP
+
+- Create Microsoft Sentinel
+<p align="center">
+<img src="https://imgur.com/BJ98DKH.jpg" height="90%", width="90%">
+</p>
+
+-Select the log analytics workspace and add it.
+<p align="center">
+<img src="https://imgur.com/KKLOg2O.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/D0KGU6V.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
