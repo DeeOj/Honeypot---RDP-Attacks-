@@ -11,6 +11,7 @@ The primary objective of this project is to create a robust environment for dete
 - [VMWare Workstation Pro](https://www.vmware.com/products/workstation-player/workstation-player-evaluation.html)
 - [Azure Account](https://azure.microsoft.com/en-us/free/)
 - [Powershell Script](https://github.com/joshmadakor1/Sentinel-Lab/blob/main/Custom_Security_Log_Exporter.ps1)
+- [API key](https://app.ipgeolocation.io/login)
    
 ## OVERVIEW OF TASK
 
@@ -72,7 +73,7 @@ Its purpose is to ingest the windows events logs.
 <img src="https://imgur.com/dxDdpeH.jpg" height="90%", width="90%">
 </p>
 
-#### ENABLE GATHERING VM LOGS IN SECURITY CENTER
+#### ENABLE GATHERING OF VM LOGS IN SECURITY CENTER
 
 - Open Defender for Cloud
 <p align="center">
@@ -95,7 +96,8 @@ Its purpose is to ingest the windows events logs.
 </p>
 
 #### CONNECTING LOG ANALYTICS TO VIRTUAL MACHINE
-Select the workspace and head to machine to connect.
+
+- Select the workspace and head to machine to connect.
 
 <p align="center">
 <img src="https://imgur.com/dm6czBq.jpg" height="90%", width="90%">
@@ -108,7 +110,7 @@ Select the workspace and head to machine to connect.
 <img src="https://imgur.com/BJ98DKH.jpg" height="90%", width="90%">
 </p>
 
--Select the log analytics workspace and add it.
+- Select the log analytics workspace and add it.
 <p align="center">
 <img src="https://imgur.com/KKLOg2O.jpg" height="90%", width="90%">
 </p>
@@ -117,169 +119,216 @@ Select the workspace and head to machine to connect.
 <img src="https://imgur.com/D0KGU6V.jpg" height="90%", width="90%">
 </p>
 
+#### LOGIN INTO THE VM WITH REMOTE DESKTOP
+
+- Copy the IP address of the VM created.
+  
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/6yUgFpE.jpg" height="90%", width="90%">
+</p>
+
+- Remote Desktop on Local Computer
+  
+<p align="center">
+<img src="https://imgur.com/3IhHZ3y.jpg" height="90%", width="90%">
+</p>
+
+- Sign in as "another user"
+  
+<p align="center">
+<img src="https://imgur.com/XfCfsn0.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/1aQu4L5.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/sgaY9Xc.jpg" height="90%", width="90%">
+</p>
+
+- Observing Event Viewer 
+  
+<p align="center">
+<img src="https://imgur.com/qrHQncY.jpg" height="90%", width="90%">
+</p>
+
+- Pinging the VM from my computer. <br/>
+  Request Timed out, therefore its firewall will be turned off to make it susceptible to ICMP echo requests, making it discoverable on the internet.
+  
+<p align="center">
+<img src="https://imgur.com/RoMajD7.jpg" height="90%", width="90%">
+</p>
+
+- Turning off Firewall
+<p align="center">
+<img src="https://imgur.com/MlUsG2G.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/UqsxJO5.jpg" height="90%", width="90%">
+</p>
+
+- Virtual machine is now responsive to pings.
+  
+<p align="center">
+<img src="https://imgur.com/33by0iS.jpg" height="90%", width="90%">
+</p>
+
+#### DOWNLOAD POWERSHELL SCRIPT ON VM.
+This will look through the event log viewed earlier, grab the events of people who failed to login into the VM and gets the geodata from them, subsequently creating a new log file.
+
+- Link to script provided earlier.
+<p align="center">
+<img src="https://imgur.com/HHCjWn0.jpg" height="90%", width="90%">
+</p>
+
+- Open script with Powershell ISE
+<p align="center">
+<img src="https://imgur.com/5BcHNPs.jpg" height="90%", width="90%">
+</p>
+
+- Register and Get an API key
+  
+<p align="center">
+<img src="https://imgur.com/vGUmUsm.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/vGUmUsm.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/rQuwnoz.jpg" height="90%", width="90%">
+</p>
+
+- Replace Key in the Script
+<p align="center">
+<img src="https://imgur.com/Wu0NPgv.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/olqFDuQ.jpg" height="90%", width="90%">
+</p>
+
+- Run the script
+
+<p align="center">
+<img src="https://imgur.com/mgIOBHg.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/mhlCdm9.jpg" height="90%", width="90%">
+</p>
+
+- A look at entries at this stage
+  
+<p align="center">
+<img src="https://imgur.com/bnjPZpU.jpg" height="90%", width="90%">
+</p>
+
+#### CREATE CUSTOM LOG IN THE LOG ANALYTICS WORKSPACE 
+
+<p align="center">
+<img src="https://imgur.com/7Q5AlDN.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/uOuBYcQ.jpg" height="90%", width="90%">
+</p>
+
+- Copy the contents of the text file from VM and safe in a text file on the local computer. Then upload the file.
+  
+<p align="center">
+<img src="https://imgur.com/OqCkndh.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/yOjJnDl.jpg" height="90%", width="90%">
+</p>
+
+- Specify the path and the name of the file on the VM
+  
+<p align="center">
+<img src="https://imgur.com/GbGsWb7.jpg" height="90%", width="90%">
+</p>
+
+- Name it.
+  
+<p align="center">
+<img src="https://imgur.com/39Fmor1.jpg" height="90%", width="90%">
+</p>
+
+- Review and Create
+  
+<p align="center">
+<img src="https://imgur.com/Kkj2fIf.jpg" height="90%", width="90%">
+</p>
+
+- A look at the virtual machine's Event Viewer from Log analytics workspace.
+  
+<p align="center">
+<img src="https://imgur.com/C9683N0.jpg" height="90%", width="90%">
+</p>
+
+- And now, some entries from the customed logs.
+
+<p align="center">
+<img src="https://imgur.com/2IKFFol.jpg" height="90%", width="90%">
+</p>
+
+- Extracting fields from raw custom log data. <br/>
+  Utilized a querry log at this juncture.
+  
+<p align="center">
+<img src="https://imgur.com/VTPdZuD.jpg" height="90%", width="90%">
+</p>
+
+#### MAP SETUP IN SENTINEL
+
+- Create a workbook.
+  
+<p align="center">
+<img src="https://imgur.com/Fh7Dt8Q.jpg" height="90%", width="90%">
+</p>
+
+- Remove these.
+  
+<p align="center">
+<img src="https://imgur.com/r78R3KL.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/SVZc9YG.jpg" height="90%", width="90%">
+</p>
+
+- Add Querry
+  
+<p align="center">
+<img src="https://imgur.com/l4liKUN.jpg" height="90%", width="90%">
+</p>
+
+- Insert querry
+  
+<p align="center">
+<img src="https://imgur.com/boJhF4n.jpg" height="90%", width="90%">
+</p>
+
+- Set Visualization Type to be "Map" and save.
+
+<p align="center">
+<img src="https://imgur.com/CR4KyDt.jpg" height="90%", width="90%">
 </p>
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/x5CSZyJ.jpg" height="90%", width="90%">
 </p>
+<br></br>
+
+## <p align="center"> WORLD MAP OF INCOMING RDP ATTACKS 🔥</p> 
 
 <p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
-</p>
-
-<p align="center">
-<img src=".jpg" height="90%", width="90%">
+<img src="https://imgur.com/huEvfWT.jpg" height="90%", width="90%">
 </p>
 
 ## CONCLUSION
